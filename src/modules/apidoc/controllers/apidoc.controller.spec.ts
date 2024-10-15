@@ -39,7 +39,7 @@ describe('Integration Test: ApidocController', () => {
     );
 
     // Initialize services if needed
-    openApiGeneratorService.initialize(app);
+    openApiGeneratorService.initialize(app, '1.0');
   });
 
   afterAll(async () => {

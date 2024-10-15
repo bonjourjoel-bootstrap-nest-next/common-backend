@@ -5,9 +5,11 @@ import { buildSwaggerDocument } from 'src/modules/common/utils/swagger-setup.uti
 @Injectable()
 export class OpenApiGeneratorService {
   private app: INestApplication;
+  private apiVersion: string;
 
-  initialize(app: INestApplication) {
+  initialize(app: INestApplication, apiVersion: string) {
     this.app = app;
+    this.apiVersion = apiVersion;
   }
 
   // Method to generate the OpenAPI JSON
@@ -18,7 +20,7 @@ export class OpenApiGeneratorService {
     }
 
     // Generate Swagger document
-    const swaggerDocument = buildSwaggerDocument(this.app);
+    const swaggerDocument = buildSwaggerDocument(this.app, this.apiVersion);
 
     // Return the generated OpenAPI document (JSON format)
     return swaggerDocument;

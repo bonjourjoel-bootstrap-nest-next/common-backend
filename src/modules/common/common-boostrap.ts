@@ -31,12 +31,12 @@ export async function commonBootstrap(args: {
 
   // Configure Swagger
   const SWAGGER_ENDPOINT_NAME = 'swagger';
-  const document = buildSwaggerDocument(args.app);
+  const document = buildSwaggerDocument(args.app, args.apiVersion);
   SwaggerModule.setup(SWAGGER_ENDPOINT_NAME, args.app, document);
 
   // Initialize the services needing the app instance
   const openApiGeneratorService = args.app.get(OpenApiGeneratorService);
-  openApiGeneratorService.initialize(args.app);
+  openApiGeneratorService.initialize(args.app, args.apiVersion);
 
   // Start app
   await args.app.listen(args.httpPort);
