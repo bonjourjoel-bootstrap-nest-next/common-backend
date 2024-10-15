@@ -20,7 +20,7 @@ import { SanitizeMiddleware } from '../sanitize-middleware/middlewares/sanitize.
   imports: [
     // source environment variables
     ConfigModule.forRoot({
-      envFilePath: `.env.${process.env.NODE_ENV}`,
+      envFilePath: `.env.common.${process.env.NODE_ENV}`,
       isGlobal: true,
     }),
     // app modules
