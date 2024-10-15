@@ -4,13 +4,13 @@ Common library for all backend
 
 # How to use
 
-# Install
+## Install
 
 ```bash
 npm install https://github.com/bonjourjoel-bootstrap-nest-next/common-backend.git
 ```
 
-# Import
+## Import
 
 ```typescript
 import { Something } from 'common-backend';
