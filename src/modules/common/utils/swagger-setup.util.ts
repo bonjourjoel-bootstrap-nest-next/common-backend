@@ -2,18 +2,15 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 
 import { INestApplication } from '@nestjs/common';
 
-export function buildSwaggerDocument(app: INestApplication) {
+export function buildSwaggerDocument(
+  app: INestApplication,
+  apiVersion: string,
+) {
   const config = new DocumentBuilder()
-    // TODO how to factorize in common?
-    .setTitle('RESTful API Documentation and Testing')
-    .setDescription('RESTful API Documentation and Testing')
-    // TODO how to factorize in common?
-    .setVersion('1.0')
+    .setTitle('Swagger')
+    .setVersion(apiVersion)
     // add sections
-    // TODO how to factorize in common?
     .addTag('apidoc')
-    .addTag('auth')
-    .addTag('users')
     // add a bearer token button login/logout, the jwt token will be automatically added to each request
     .addBearerAuth({
       type: 'http',
