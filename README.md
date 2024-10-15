@@ -10,39 +10,38 @@ Common library for all backend
 npm install https://github.com/bonjourjoel-bootstrap-nest-next/common-backend
 ```
 
-## Setup shared modules
+## Setup common module
 
-### Multipart-json middleware
+### When application is launched
 
-This allows to apis to consumes bodies in both formats, so the swagger UI can also use form inputs.
+The environment variable NODE_ENV must be defined.
 
-Install it in each App module like this:
+### In app.module.ts
 
 ```typescript
 @Module({
-  imports: [MultipartJsonMiddlewareModule],
+  imports: [CommonModule],
 })
 ```
 
-### Sanitize middleware
-
-This middleware sanitizes the request body and query parameters using `sanitize-html` to prevent XSS attacks.
-
-Install it in the each module like this:
+### In main.ts
 
 ```typescript
-@Module({
-  imports: [SanitizeMiddlewareModule],
-})
+  const app = await NestFactory.create(AppModule);
+  await commonBootstrap({app, [...]});
 ```
 
 ## General import syntax for other files
 
 ```typescript
-import { Something } from 'common-backend';
+import { Something } from 'common-backend/lib';
 ```
 
-# Commands
+# npm commands
+
+```bash
+npm run lint
+```
 
 ```bash
 npm run test
