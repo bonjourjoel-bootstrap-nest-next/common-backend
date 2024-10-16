@@ -1,6 +1,18 @@
 # Description
 
-Common library for all backend
+Common library for backend nest.js REST microservices. It includes:
+
+- a variety of shared types and utilities in /lib/
+- a Nest.js CommonModule to import in AppModule and a commonBoostrap() function, which handle:
+  - securing the HTTP headers with helmet
+  - sanitizing strings sent from the client
+  - setting a default throttle rate limit
+  - converting multipart bodies to json
+  - logging events into console / files / DataDog
+  - setting up swagger
+  - providing an endpoint /apidoc/ able to generate OpenApi specification files
+  - hashing of passwords and jwt tokens
+  - providing an injectable Prisma service
 
 # How to use
 
@@ -12,7 +24,7 @@ npm install https://github.com/bonjourjoel-bootstrap-nest-next/common-backend
 
 ## Setup common module
 
-### When application is launched
+### Prerequisites:
 
 The environment variable NODE_ENV must be defined.
 
