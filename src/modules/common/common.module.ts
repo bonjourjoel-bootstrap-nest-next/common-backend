@@ -1,5 +1,4 @@
 import { MiddlewareConsumer, Module, RequestMethod } from '@nestjs/common';
-import { PrismaModule, PrismaService } from '../prisma';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 
 import { APP_GUARD } from '@nestjs/core';
@@ -25,7 +24,6 @@ import { SanitizeMiddleware } from '../sanitize-middleware/middlewares/sanitize.
     }),
     // app modules
     LoggerModule,
-    PrismaModule,
     ApidocModule,
     // default throttle rule
     ThrottlerModule.forRoot([
@@ -37,7 +35,6 @@ import { SanitizeMiddleware } from '../sanitize-middleware/middlewares/sanitize.
   ],
   controllers: [ApidocController],
   providers: [
-    PrismaService,
     // install throttle globally
     {
       provide: APP_GUARD, // Provide ThrottlerGuard as a global guard
