@@ -10,9 +10,9 @@ Common library for backend nest.js REST microservices. It includes:
   - converting multipart bodies to json
   - logging events into console / files / DataDog
   - setting up swagger
-  - providing an endpoint /apidoc/ able to generate OpenApi specification files
+  - providing an endpoint /apidoc able to generate OpenApi specification files
+  - providing an endpoint /health
   - hashing of passwords and jwt tokens
-  - providing an injectable Prisma service
 
 # How to use
 
