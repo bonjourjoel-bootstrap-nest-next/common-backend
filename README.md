@@ -34,7 +34,7 @@ The environment variable NODE_ENV must be defined.
 ## General import syntax for other files
 
 ```typescript
-import { Something } from 'common-backend/lib';
+import { Something } from 'common-backend';
 ```
 
 # npm commands
