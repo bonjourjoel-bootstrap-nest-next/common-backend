@@ -10,6 +10,7 @@ export function buildSwaggerDocument(
     .setTitle('Swagger')
     .setVersion(apiVersion)
     // add sections
+    .addTag('health')
     .addTag('apidoc')
     // add a bearer token button login/logout, the jwt token will be automatically added to each request
     .addBearerAuth({

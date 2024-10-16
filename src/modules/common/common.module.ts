@@ -6,6 +6,8 @@ import { AllExceptionsLoggerFilter } from '../logger/filters/log-all-exceptions.
 import { ApidocController } from '../apidoc/controllers/apidoc.controller';
 import { ApidocModule } from '../apidoc/apidoc.module';
 import { ConfigModule } from '@nestjs/config';
+import { HealthController } from '../health/controllers/health.controller';
+import { HealthModule } from '../health/health.module';
 import { LoggerModule } from '../logger/logger.module';
 import { MultipartJsonMiddleware } from '../multipart-json-middleware/middlewares/multipart-json.middleware';
 import { RequestLoggerMiddleware } from '../logger/middlewares/request-logger.middleware';
@@ -25,6 +27,7 @@ import { SanitizeMiddleware } from '../sanitize-middleware/middlewares/sanitize.
     // app modules
     LoggerModule,
     ApidocModule,
+    HealthModule,
     // default throttle rule
     ThrottlerModule.forRoot([
       {
@@ -33,7 +36,7 @@ import { SanitizeMiddleware } from '../sanitize-middleware/middlewares/sanitize.
       },
     ]),
   ],
-  controllers: [ApidocController],
+  controllers: [ApidocController, HealthController],
   providers: [
     // install throttle globally
     {
